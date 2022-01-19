@@ -2,12 +2,12 @@ X=12
 G=23
 X+G
 
-lista=c(X,G,12,34)
+print(lista=c(X,G,12,34))
 
-sum(lista)
+print(sum(lista))
  
-length(lista)
+print(length(lista))
 
- min(lista)
+ print(min(lista))
 
 
