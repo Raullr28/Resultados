@@ -1,5 +1,4 @@
-
-\documentclass{article}
++\documentclass{article}
 \setlength{\parskip}{5pt} % esp. entre parrafos
 \setlength{\parindent}{0pt} % esp. al inicio de un parrafo
 \usepackage{amsmath} % mates
