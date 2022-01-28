@@ -1,4 +1,11 @@
-print(runif(1))  print(runif(5)) print(runif(2, 4, 10))  print(runif(1) < 0.5)  print(runif(1) < 0.5) 
-print(runif(1) < 0.5) 
-print(runif(5) < 0.5)  print(sample(1:10, 3))  print(sample(1:10, 3))  print(sample(1:10)) 
-print(sample(c(2, 4, 6), 10, prob=c(0.1, 0.2, 0.7), replace=TRUE)) 
+print(runif(1))
+print(runif(5))
+print(runif(2, 4, 10))
+print(runif(1) < 0.5)
+print(runif(1) < 0.5)
+print(runif(1) < 0.5)
+print(runif(5) < 0.5)
+print(sample(1:10, 3))
+print(sample(1:10, 3))
+print(sample(1:10))
+print(sample(c(2, 4, 6), 10, prob=c(0.1, 0.2, 0.7), replace=TRUE))
