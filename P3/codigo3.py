@@ -36,7 +36,7 @@ if __name__ == "__main__":
     org, inv, ale = [],[],[]
     for nucleos in range(1,cores-1):     
         tiempos = {"ot": [], "it": [], "at": []}
-        print("############ CORE:",cores-nucleos,"##################")
+        print( CORE:",cores-nucleos,")
         with multiprocessing.Pool(processes = cores - nucleos) as pool:
             for r in range(replicas):
                 t = time()
