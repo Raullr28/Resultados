@@ -65,6 +65,7 @@ def propaga(replica):
             break # ya no se propaga
     if largo >= limite: # aqui decide que imprima las mayores a 80 el limite
         visual = grieta.resize((10 * n,10 * n))
+        visual.save("p4pg_{:d}.png".format(replica2, grieta,contacto))
     return (largo, grieta)
 
 def propaga2(replica2, grieta,contacto):
