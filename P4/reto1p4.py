@@ -31,9 +31,9 @@ def propaga(replica):
         for v in vecinos:
             (dx, dy) = v
             vx, vy = x + dx, y + dy
-            if vx >= 0 and vx < n and vy >= 0 and vy < n: # existe
-               if g[vx, vy] != negro: # no tiene grieta por el momento
-                   if vor[vx, vy] == vor[x, y]: # misma celda
+            if vx >= 0 and vx < n and vy >= 0 and vy < n: 
+               if g[vx, vy] != negro: 
+                   if vor[vx, vy] == vor[x, y]:
                        interior.append(v)
                    else:
                        frontera.append(v)
@@ -48,8 +48,8 @@ def propaga(replica):
             (dx, dy) = elegido
             x, y = x + dx, y + dy
         else:
-            break # ya no se propaga
-    if largo >= limite: # aqui decide que imprima las mayores a 80 el limite
+            break 
+    if largo >= limite:
         visual = grieta.resize((10 * n,10 * n))
     return (largo, grieta)
 
@@ -67,21 +67,20 @@ def propaga2(replica2, grieta,contacto):
         for v in vecinos:
             (dx, dy) = v
             vx, vy = x + dx, y + dy
-            if vx >= 0 and vx < n and vy >= 0 and vy < n: # existe
-               if g[vx, vy] != blanco: # no tiene grieta por el momento
-                   if vor[vx, vy] == vor[x, y]: # misma celda
+            if vx >= 0 and vx < n and vy >= 0 and vy < n: 
+               if g[vx, vy] != blanco: 
+                   if vor[vx, vy] == vor[x, y]:
                        interior.append(v)
                    else:
                        frontera.append(v)
                
                if g[vx, vy]==(0,0,0):
                    contador=1
-                   g[vx, vy]=(255,0,0)# contacto color rojo donde se detuvo la propagacion
+                   g[vx, vy]=(255,0,0)
                    break
         if contador == 1:
             visual = grieta.resize((10 * n,10 * n))
-            #visual.save("p8pg_{:d}.png".format(replica2))
-            contacto.append([vx, vy])#guarda donde hizo contacto final 
+            contacto.append([vx, vy])
             break
         elegido = None
         if len(frontera) > 0:
@@ -94,8 +93,8 @@ def propaga2(replica2, grieta,contacto):
             (dx, dy) = elegido
             x, y = x + dx, y + dy
         else:
-            break # ya no se propaga
-    if largo >= limite: # aqui decide que imprima las mayores a 80 el limite
+            break 
+    if largo >= limite: 
         visual = grieta.resize((10 * n,10 * n))
         visual.save("p8pg_{:d}.png".format(replica2))
     return (largo,grieta)
@@ -151,24 +150,19 @@ for k in sem:
 
     incrementos=[]
     semi=[]
-    p=0.5
+    p=0.8
     for s in range(n):
         bk=[]
-        print("ciclo:",s)
         if s == 0:
             semi.append(semillas[0])
             semillas.pop(s)
             incrementos.append(0)
-            print("removio el primero")
         if s != 0 and ((random.uniform(0, 1)) > p) and len(semillas)>0:
             rnd=random.choice(semillas)
             semi.append(rnd)
             semillas.remove(rnd)
             incrementos.append(0)
-            print("borró este random:",rnd)
         incrementos=[s+1 for s in incrementos]
-        print("cuantas lee funcion:",semi)
-        print("incremento que lee funcion:",incrementos)
         voronoi=crece(semi,voronoi,incrementos,colores)
         [[bk.append(voronoi.getpixel((x,y))) for x in range(5)]for y in range(5)]
         vis=voronoi.copy()
@@ -180,20 +174,20 @@ for k in sem:
     print(incrementos)
     print("terminó")
     
-    limite, vecinos = 10, []# se modifico para que produzca mas grietas
+    limite, vecinos = 10, []
     for dx in range(-1, 2):
         for dy in range(-1, 2):
             if dx != 0 or dy != 0:
                 vecinos.append((dx, dy))
 
     rep=100
-    contacto=[]#guarda cuantas veces chocaron
-    for r in range(rep): # pruebas sin paralelismo
-        largo, nueva_grieta =propaga(r)# para grieta 1 color negro
+    contacto=[]
+    for r in range(rep): 
+        largo, nueva_grieta =propaga(r)
         if largo > limite:
-            largo2,grietas_im =propaga2(r,nueva_grieta,contacto)#para grieta 2 color blanca
+            largo2,grietas_im =propaga2(r,nueva_grieta,contacto)
     print(contacto)
-    probabilidad= ((len(contacto))/rep)*100#convierte a porcentaje
+    probabilidad= ((len(contacto))/rep)*100
     porcentaje.append(probabilidad)
     print("Probabilidad de contacto entre grietas es:",probabilidad, "%")
     plt.imshow(grietas_im)
