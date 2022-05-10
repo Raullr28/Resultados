@@ -78,7 +78,7 @@ for k in range(2,6):
 
   \end{minted}
   \label{lst:fibo}
-  \caption{Representación de las 3 reglas generadas.}
+  \caption{Representación de la variación del objetivo.}
    \end{listing}
 
 
@@ -94,11 +94,26 @@ En una gráfica de violines podemos ver el comportamiento al variar el objetivo 
 \begin{subfigure}[b]{.50\linewidth}
 \includegraphics[width=\linewidth]{imagenes/p11p_violin.png}
 \end{subfigure}
-\caption{Gráfica de tiempo de ejecución.}
+\caption{Gráfica de comparación.}
 \label{fig:westminster}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%  final 
 
+El objetivo principal de esta prueba es determinar si existe una diferencia estadística entre las medianas de al menos tres grupos independientes.
+Hipótesis:
+La prueba de Kruskal-Wallis tiene las hipótesis nula y alternativa como se analiza a continuación:
+
+La hipótesis nula (H0): La mediana es la misma para todos los grupos de datos.
+La hipótesis alternativa: (Ha): La mediana no es igual para todos los grupos de datos.
+Implementación paso a paso:
+\begin{center}
+\begin{tabular}{ |c|c|c| } 
+ \hline
+ Resultado & KruskalResult(statistic=87.56143318086774, pvalue=7.315608346059619e-19) \\ 
+
+ \hline
+\end{tabular}
+\end{center}
 
 
 
@@ -116,7 +131,7 @@ El primer reto es seleccionar un subconjunto (cuyo tamaño como un porcentaje de
 \begin{subfigure}[b]{1.0\linewidth}
 \includegraphics[width=\linewidth]{imagenes/Reto1_1.png}
 \end{subfigure}
-\caption{Gráfica de comportamiento regla 1.}
+\caption{Gráfica de comportamiento.}
 \label{fig:westminster}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%  final 
@@ -128,7 +143,7 @@ El primer reto es seleccionar un subconjunto (cuyo tamaño como un porcentaje de
 \begin{subfigure}[b]{1.0\linewidth}
 \includegraphics[width=\linewidth]{imagenes/Reto1_2.png}
 \end{subfigure}
-\caption{Grafica de comportamiento regla 2 .}
+\caption{Grafica de comportamiento.}
 \label{fig:westminster}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%  final 
@@ -141,7 +156,7 @@ El primer reto es seleccionar un subconjunto (cuyo tamaño como un porcentaje de
 \begin{subfigure}[b]{1.0\linewidth}
 \includegraphics[width=\linewidth]{imagenes/Reto1_3.png}
 \end{subfigure}
-\caption{Grafica de comportamiento regla 3.}
+\caption{Grafica de comportamiento.}
 \label{fig:westminster}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%  final 
@@ -151,7 +166,7 @@ El primer reto es seleccionar un subconjunto (cuyo tamaño como un porcentaje de
 \begin{subfigure}[b]{1.0\linewidth}
 \includegraphics[width=\linewidth]{imagenes/Reto1_4.png}
 \end{subfigure}
-\caption{Gráfica de tiempo de ejecución.}
+\caption{Gráfica de comportamiento.}
 \label{fig:westminster}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%  final 
@@ -167,5 +182,6 @@ Se mostró con graficas de violín como va comportamiento del valor del objetivo
  \bibliographystyle{unsrtnat}
 
  \end{document}
+
 
 
