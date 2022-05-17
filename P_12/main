@@ -1,0 +1,185 @@
+\documentclass{article}
+\setlength{\parskip}{5pt} % esp. entre párrafos
+\setlength{\parindent}{0pt} % esp. al inicio de un párrafo
+\usepackage{amsmath} % mates
+\usepackage{url} % que las URLs se vean lindos
+\usepackage[top=25mm,left=20mm,right=20mm,bottom=25mm]{geometry} % márgenes
+\usepackage{parskip}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb,mathtools}
+\usepackage{graphicx,float}
+\usepackage{algorithmic}
+\usepackage{minted}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[sort&compress,numbers]{natbib} % referencias
+\usepackage{minted}
+\usepackage{hyperref} % ligas de URLs
+\usepackage{graphicx} % poner figuras
+\usepackage[spanish]{babel} % otros idiomas
+\usepackage{listings}
+\author{Raul L.} % author
+\title{Pr\'{a}ctica 11: frentes de Pareto} %título
+\date{\today}
+\begin{document} % inicia contenido
+
+\maketitle % cabecera
+
+
+\section{Introducci\'{o}n}\label{intro} % sección y etiqueta
+La última práctica es una demostración básica de aprendizaje a máquina: vamos a reconocer dígitos de imágenes pequeñas en blanco y negro con una red neuronal. El elemento básico de una red neuronal es un perceptrón que esencialmente es un híperplano (una línea si nos limitamos a dos dimensiones) que busca colocarse en la frontera que separa las entradas verdaderas y las entradas falsas. La dimensión $d$ del perceptrón es el largo del vector $x$ que toma como entrada, y su estado interno se representa con otro vector$w$ que contiene sus pesos. Para responder a una salida proporcionada a ello, el perceptrón calcula el producto interno de $x⋅w$, es decir \[\sum_{i=1}=x_{i}w_{i}\], y si esta suma es positiva, la salida del perceptrón es verdad, en otro caso es falso \citep{1}. Para agarrar la onda con los perceptrónes, haremos primero uno más sencillo cuyo jale es identificar si$ x>y$ para puntos en dos dimensiones, ya que así es fácil para nosotros visualizar lo que le pasa al perceptrón durante el entrenamiento\citep{2}.
+
+
+\section{Objetivo}
+Estudia de manera sistemática el desempeño de la red neuronal en términos de su puntaje F (F-score en inglés) para los diez dígitos en función de las tres probabilidades asignadas a la generación de los dígitos (ngb), variando a las tres en un experimento factorial adecuado\citep{2}.
+
+
+\section{C\'{o}digo}
+Para este código se utilizó como base el código de la doctora.
+
+
+ Código en Python 
+\url{https://github.com/satuelisa/Simulation/blob/master/ParetoFronts/violin.py}
+\newpage
+{\bf Código creado en Python}
+
+\url{https://github.com/Raullr28/Resultados/blob/main/P_11}
+
+\renewcommand{\listingscaption}{Código}
+
+\begin{listing}[H]
+\begin{minted}{python}
+
+n=0.99
+g=0.01
+b=0.50
+
+fact_des= itertools.product((n,g,b),(n,g,b),(n,g,b))
+factor=[]
+factor_lab=[]
+for i in fact_des:
+    factor.append(i)
+    factor_lab.append(str(i))
+
+CV=[]
+for n, g, b in factor:
+    print('##############',n,g,b,'###############')
+    replicas=[]
+    repeticiones=10
+    for rep in range(repeticiones):
+        modelos = pd.read_csv('digits.txt', sep=' ', header = None)
+        modelos = modelos.replace({'n': n, 'g': g, 'b': b})
+
+  \end{minted}
+  \label{lst:fibo}
+  \caption{Representación de la función factorial.}
+   \end{listing}
+
+\renewcommand{\listingscaption}{Código}
+
+\begin{listing}[H]
+\begin{minted}{python}
+
+  c = pd.DataFrame(contadores)
+        c.columns = [str(i) for i in range(k)] + ['NA']
+        c.index = [str(i) for i in range(k)]
+
+        diagonal=[]
+        for d in range(0,k):
+            num=c.iloc[d][d]
+            diagonal.append(num)
+
+        FP=[]
+        for e in c.columns[0:-1]:
+            suma=sum(c[e])
+            diag=diagonal[int(e)]
+            FP.append(suma-diag)
+            
+        FN=[f for f in c['NA']]
+
+        PCS= sum(diagonal)/(sum(diagonal)+sum(FP))
+        RCL=sum(diagonal)/(sum(diagonal)+sum(FN))
+        F_score= 2*(PCS*RCL)/(PCS+RCL)
+        replicas.append(F_score)
+
+  \end{minted}
+  \label{lst:fibo}
+  \caption{Representación FC.}
+   \end{listing}
+
+\newpage
+% Computational Results
+\section{Resultados}
+En una gráfica de violines podemos ver el comportamiento al variar el experimento factorial dando como resultado la mejor conbinacion para obtener el mejor puntaje .
+
+
+%%%%%%%%%%%%%%%%%%%%% imagen 1
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{1.0\linewidth}
+\includegraphics[width=\linewidth]{imagenes/p1p.png}
+\end{subfigure}
+\caption{Gráfica de comparación.}
+\label{fig:westminster}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%  final 
+
+
+
+
+\newpage
+\section{Reto 1}
+Como un primer reto, extiende y entrena la red neuronal para que reconozca además por lo menos doce símbolos ASCII adicionales, aumentando la resolución de las imágenes a 5×7 de lo original de 3×5(modificando las plantillas de los dígitos acorde a este cambio).
+
+
+
+%%%%%%%%%%%%%%%%%%%%% imagen 1
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{.70\linewidth}
+\includegraphics[width=\linewidth]{imagenes/p12pg.png}
+\end{subfigure}
+\caption{Gráfica de comportamiento.}
+\label{fig:westminster}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%  final 
+
+
+%%%%%%%%%%%%%%%%%%%%% imagen 2
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{1.0\linewidth}
+\includegraphics[width=\linewidth]{imagenes/pr1p.png}
+\end{subfigure}
+\caption{Grafica de comportamiento.}
+\label{fig:westminster}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%  final 
+\newpage
+\section{Reto 2}
+En el segundo reto, agrega ruido sal-y-pimienta en las entradas para una combinación ngb con la cual la red desempeña bien; este tipo de ruido se genera cambiando con una probabilidad pr los pixeles a blanco o negro (uniformemente al azar entre las dos opciones). Estudia el efecto de pr en el desempeño de la red (no importa si se hace esto con la red de la tarea base o la red extendida del primer reto).
+
+
+%%%%%%%%%%%%%%%%%%%%% imagen 2
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{1.0\linewidth}
+\includegraphics[width=\linewidth]{imagenes/p15p.png}
+\end{subfigure}
+\caption{Grafica de comportamiento.}
+\label{fig:westminster}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%  final 
+
+
+ \section{Conclusión}
+Se mostró con graficas de violín como va comportamiento al aumentar la probabilidad del ruido sal y pimienta no puede comprender que dato manejamos y eso hace que baje el porcentaje FC.  
+
+ \bibliography{bib.bib}
+ \bibliographystyle{unsrtnat}
+
+ \end{document}
+
+
