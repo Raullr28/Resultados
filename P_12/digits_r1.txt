@@ -1,0 +1,23 @@
+g g n g g g n b n g n b b b n n b b b n n b b b n g n b n g g g n g g
+b b b b g b b b g n b b b g n b b b g n b b b g n b b b g n b b b b g
+g n n n g b b b g n b b b b n g n n n g n g b b b n b b b b g n n n g
+g n n n g b b b g n b b b g n g g n n g b b b g n b b b g n g n n n g
+g b b b g n b b b n n g b g n g n n n g b b b b n b b b b n b b b b g
+g n n g g n b b b b n g b b b g n n n g b b b g n b b b b n g g n n g
+n n n g g n g b b b n b b b b g n n n g n b b b n n b b g n g n n n g
+g g n n n b b b g n b b b b n b b b b n b b b b n b b b b g b b b b g
+g n g n g n b b b n n b b b n g n n n g n b b b n n b b b n g n g n g
+g n n n g n b b b n n b b b n g n g n g b b b b n b b b b n g g n n g
+b b g b b b g n g b b g n g b g n n n g b g n g b b g n g b b b g b b
+b g b g b b n b n b n g n g n b n b n b n g n g n b n b n b b g b g b
+b b b b b b b b b b b g g g b b n n n b b g g g b b b b b b b b b b b
+b b b b b b b b b b b g n g b b n n n b b g n g b b b b b b b b b b b
+b b g b b b b n b b b b n b b g n n n g b b n b b b b n b b b b g b b
+b b b b b b b b b b g n n n g b b b b b g n n n g b b b b b b b b b b
+g b b b b b n b b b b b n b b b b b n g b b n b b b n b b b g b b b b
+b b b b g b b b n b b b n b b g n b b b b b n b b b b b n b b b b b g
+b g n n b n b b b g b b b b n b b b n g b b n b b b b b b b b b n b b
+b g b g b b g b g b b n b n b b n b n b b n b n b b b b b b b n b n b
+n n b b g n g b g n b b b n g b g n g b g n b b b n g b g n g b b n n
+g n n g g n b b b b n b b b b g n n g b n b b b b n b b b b g b b b b
+
