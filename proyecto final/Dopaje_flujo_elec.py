@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import cv2
 from numpy.random import choice
 import seaborn as sns
 from math import sqrt, log, floor
